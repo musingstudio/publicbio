@@ -2,6 +2,8 @@
 
 Create a simple public bio for yourself.
 
+![a preview of public.bio](https://i.snap.as/A0hxIru.png)
+
 Right now it's only made for a single user. Edit `sample.json` and then run:
 
 ```
