@@ -1,0 +1,28 @@
+{
+	"name": "Jane Doe",
+	"header": "A sub-header to describe yourself",
+	"bio": "A user-editable description that, _hey_, even supports **Markdown**. There is no limit to what you can do, as long as you don't want to do anything crazy outside of plain text. Really, you can just use plain text. But that's pretty great.",
+	"avatar_url": "https://linkasmockup.carrd.co/assets/images/image01.jpg?v78193474557251",
+	"links": [
+		{
+			"title": "Mastodon",
+			"url": "https://mastodon.social/"
+		},
+		{
+			"title": "Twitter",
+			"url": "https://twitter.com/"
+		},
+		{
+			"title": "Write.as",
+			"url": "https://write.as/"
+		},
+		{
+			"title": "Elsewhere",
+			"url": "https://example.com"
+		},
+		{
+			"title": "Website",
+			"url": "https://example.com"
+		}
+	]
+}
