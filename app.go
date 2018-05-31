@@ -15,7 +15,6 @@ import (
 type app struct {
 	router *mux.Router
 	cfg    *config
-	keys   *keychain
 
 	singleUser *Profile
 }

@@ -4,7 +4,6 @@ import (
 	"github.com/writeas/impart"
 	"log"
 	"net/http"
-	"strings"
 )
 
 type handlerFunc func(app *app, w http.ResponseWriter, r *http.Request) error
