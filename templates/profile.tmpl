@@ -22,11 +22,7 @@
 							</div>
 							<div>
 								<ul class="buttons">
-									<li><a href="http://domain.tld/path" class="button n01">Twitter</a></li>
-									<li><a href="http://domain.tld/path" class="button n02">Mastodon</a></li>
-									<li><a href="http://domain.tld/path" class="button n03">Pixelfed</a></li>
-									<li><a href="http://domain.tld/path" class="button n04">Instagram</a></li>
-									<li><a href="http://domain.tld/path" class="button n05">Whatever Else</a></li>
+									{{range .Links}}<li><a href="{{.URL}}" class="button">{{.Title}}</a></li>{{end}}
 								</ul>
 							</div>
 						</div>

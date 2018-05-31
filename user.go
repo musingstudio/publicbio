@@ -13,8 +13,14 @@ type Profile struct {
 	Name      converter.NullJSONString `json:"name"`
 	Header    converter.NullJSONString `json:"header"`
 	Bio       converter.NullJSONString `json:"bio"`
+	Links     []Link                   `json:"links"`
 }
 
 func (p *Profile) RenderedBio() template.HTML {
 	return template.HTML(p.Bio.String)
+}
+
+type Link struct {
+	Title string `json:"title"`
+	URL   string `json:"url"`
 }
