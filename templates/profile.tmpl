@@ -1,0 +1,39 @@
+{{define "profile"}}<!DOCTYPE HTML>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{{.Name.String}}</title>
+		<link rel="stylesheet" type="text/css" href="/css/main.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+	<body>
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<div id="container01" class="container">
+						<div class="inner">
+							<div>
+								<div id="image01" class="image">
+									<img src="" alt="Profile Image" />
+								</div>
+								<h1 id="text04">{{.Name.String}}</h1>
+								<h2 id="text03">{{.Header.String}}</h2>
+								<p id="bio">{{.RenderedBio}}</p>
+							</div>
+							<div>
+								<ul id="buttons02" class="buttons">
+									<li><a href="http://domain.tld/path" class="button n01">Twitter</a></li>
+									<li><a href="http://domain.tld/path" class="button n02">Mastodon</a></li>
+									<li><a href="http://domain.tld/path" class="button n03">Pixelfed</a></li>
+									<li><a href="http://domain.tld/path" class="button n04">Instagram</a></li>
+									<li><a href="http://domain.tld/path" class="button n05">Whatever Else</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+{{end}}
