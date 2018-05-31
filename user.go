@@ -1,6 +1,8 @@
 package publicbio
 
 import (
+	"github.com/microcosm-cc/bluemonday"
+	"github.com/writeas/saturday"
 	"github.com/writeas/web-core/converter"
 	"html/template"
 )
@@ -17,7 +19,28 @@ type Profile struct {
 }
 
 func (p *Profile) RenderedBio() template.HTML {
-	return template.HTML(p.Bio.String)
+	return template.HTML(applyMarkdown(p.Bio.String))
+}
+
+func applyMarkdown(data string) string {
+	mdExtensions := 0 |
+		blackfriday.EXTENSION_TABLES |
+		blackfriday.EXTENSION_FENCED_CODE |
+		blackfriday.EXTENSION_AUTOLINK |
+		blackfriday.EXTENSION_STRIKETHROUGH |
+		blackfriday.EXTENSION_SPACE_HEADERS |
+		blackfriday.EXTENSION_HEADER_IDS
+	htmlFlags := 0 |
+		blackfriday.HTML_USE_SMARTYPANTS |
+		blackfriday.HTML_SMARTYPANTS_DASHES
+
+	// Generate Markdown
+	md := blackfriday.Markdown([]byte(data), blackfriday.HtmlRenderer(htmlFlags, "", ""), mdExtensions)
+	// Strip out bad HTML
+	policy := bluemonday.UGCPolicy()
+	policy.AllowAttrs("target").OnElements("a")
+	policy.AllowAttrs("style", "class", "id").Globally()
+	return string(policy.SanitizeBytes(md))
 }
 
 type Link struct {
