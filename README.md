@@ -8,6 +8,7 @@ Right now it's only made for a single user. Edit `sample.json` and then run:
 
 ```
 cd cmd/publicbio
+go build
 ./publicbio -u ../../sample.json
 ```
 
