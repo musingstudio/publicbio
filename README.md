@@ -16,4 +16,4 @@ You'll see your site at `localhost:8080`. Provide a different port with the `-p`
 
 ## Development
 
-After updating styles, run `./generate.sh`.
+After updating styles, run `make`.
