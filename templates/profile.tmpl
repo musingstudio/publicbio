@@ -10,19 +10,19 @@
 		<div id="wrapper">
 			<div id="main">
 				<div class="inner">
-					<div class="container">
+					<div class="container h-card">
 						<div class="inner">
 							<div>
 								<div class="image">
-									<img src="{{.AvatarURL}}" />
+									<img src="{{.AvatarURL}}" class="u-photo" />
 								</div>
-								<h1>{{.Name.String}}</h1>
+								<h1 class="p-name">{{.Name.String}}</h1>
 								<h2>{{.Header.String}}</h2>
 								<div id="bio">{{.RenderedBio}}</div>
 							</div>
 							<div>
 								<ul class="buttons">
-									{{range .Links}}<li><a href="{{.URL}}" class="button">{{.Title}}</a></li>{{end}}
+									{{range .Links}}<li><a rel="me" href="{{.URL}}" class="u-url button">{{.Title}}</a></li>{{end}}
 								</ul>
 							</div>
 						</div>
