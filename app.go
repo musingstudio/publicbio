@@ -10,6 +10,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 )
 
 type app struct {
@@ -24,8 +25,9 @@ func (app *app) multiUser() bool {
 }
 
 type config struct {
-	host string
-	port int
+	host   string
+	port   int
+	static bool
 }
 
 func Serve() {
@@ -37,6 +39,7 @@ func Serve() {
 	flag.StringVar(&app.cfg.host, "h", "https://public.bio", "Site's base URL")
 	var userFile string
 	flag.StringVar(&userFile, "u", "", "Configuration file for single-user site")
+	flag.BoolVar(&app.cfg.static, "s", false, "Generate static page instead of serving the site")
 	flag.Parse()
 
 	if userFile != "" {
@@ -52,6 +55,13 @@ func Serve() {
 		fmt.Printf("Results: %v\n", app.singleUser)
 	} else {
 		log.Fatal("No user configuration")
+	}
+
+	if app.cfg.static {
+		if err := renderTemplate(os.Stdout, "profile", app.singleUser); err != nil {
+			log.Fatal(err)
+		}
+		return
 	}
 
 	initRoutes(app)
