@@ -45,7 +45,10 @@ func Serve() {
 			log.Fatal("File error: %v\n", err)
 		}
 
-		json.Unmarshal(f, &app.singleUser)
+		err = json.Unmarshal(f, &app.singleUser)
+		if err != nil {
+			log.Fatalf("Unable to read user config: %v", err)
+		}
 		fmt.Printf("Results: %v\n", app.singleUser)
 	} else {
 		log.Fatal("No user configuration")
