@@ -8,7 +8,7 @@ import (
 
 var profileTmpl *template.Template
 
-const templatesDir = "../../templates/"
+const templatesDir = "templates/"
 
 func init() {
 	profileTmpl = template.Must(template.New("profile").ParseFiles(templatesDir + "profile.tmpl"))
