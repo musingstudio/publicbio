@@ -31,3 +31,7 @@ publicbio -u sample.json -s > bio.html
 ## Development
 
 After updating styles, run `make`.
+
+## Thanks
+
+Thanks to [International](https://cybre.space/@International) for the initial design, and thanks to [Shane](https://mastodon.design/@ZiiX) for the name!
