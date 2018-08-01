@@ -1,6 +1,6 @@
 # Public.Bio
 
-Create a simple public bio for yourself.
+Create a simple public bio for yourself. An open source alternative to about.me, Linktree, Linkkle, etc.
 
 ![a preview of public.bio](https://i.snap.as/A0hxIru.png)
 
