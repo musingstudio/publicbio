@@ -1,0 +1,23 @@
+{{define "pre-end-body"}}
+<script type="text/javascript">
+try { // Google Fonts
+  WebFontConfig = {
+	custom: { families: [ 'Open+Sans:400,700:latin' ], urls: [ '/css/fonts.css' ] }
+  };
+  (function() {
+	var wf = document.createElement('script');
+	wf.src = '/js/webfont.js';
+	wf.type = 'text/javascript';
+	wf.async = 'true';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(wf, s);
+  })();
+} catch (e) { /* ¯\_(ツ)_/¯ */ }
+</script>
+{{end}}
+
+{{define "footer"}}
+<footer>
+	&copy; 2018 &ndash; 2021 <a href="https://abunchtell.com">A Bunch Tell [labs]</a>
+</footer>
+{{end}}
