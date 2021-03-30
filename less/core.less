@@ -1,8 +1,10 @@
 @themeColor: #1FBF99;
 @buttonsColor: #2FD6AF;
+@sansFont: 'Open Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
 
 html {
 	font-size: 18pt;
+	font-family: @sansFont;
 }
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -46,7 +48,7 @@ a {
 
 h1, h2, h3, p {
 	color: rgba(0, 0, 0, 0.42);
-	font-family: 'Roboto', 'sans-serif';
+	font-family: @sansFont;
 	letter-spacing: -0.025rem;
 	width: 100%;
 	font-size: 2em;
@@ -227,7 +229,7 @@ h2 {
 
 #bio {
 	color: rgba(0, 0, 0, 0.322);
-	font-family: 'Open Sans', 'sans-serif';
+	font-family: @sansFont;
 	font-size: 1em;
 	letter-spacing: -0.025rem;
 	width: 100%;
