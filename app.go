@@ -2,7 +2,6 @@ package publicbio
 
 import (
 	"encoding/json"
-	"flag"
 	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/schema"
@@ -13,9 +12,19 @@ import (
 	"os"
 )
 
+const (
+	serverSoftware = "Public Bio"
+	softwareURL    = "https://publicb.io"
+)
+
+var (
+	// Software version can be set from git env using -ldflags
+	softwareVer = "0.1.0"
+)
+
 type app struct {
 	router *mux.Router
-	cfg    *config
+	cfg    *Config
 
 	singleUser *Profile
 }
@@ -24,26 +33,21 @@ func (app *app) multiUser() bool {
 	return app.singleUser == nil
 }
 
-type config struct {
-	host   string
-	port   int
+type Config struct {
+	Host   string
+	Port   int
 	static bool
+
+	UserFile string
 }
 
-func Serve() {
+func Serve(cfg *Config) {
 	app := &app{
-		cfg: &config{},
+		cfg: cfg,
 	}
 
-	flag.IntVar(&app.cfg.port, "p", 8080, "Port to start server on")
-	flag.StringVar(&app.cfg.host, "h", "https://public.bio", "Site's base URL")
-	var userFile string
-	flag.StringVar(&userFile, "u", "", "Configuration file for single-user site")
-	flag.BoolVar(&app.cfg.static, "s", false, "Generate static page instead of serving the site")
-	flag.Parse()
-
-	if userFile != "" {
-		f, err := ioutil.ReadFile(userFile)
+	if cfg.UserFile != "" {
+		f, err := ioutil.ReadFile(cfg.UserFile)
 		if err != nil {
 			log.Fatal("File error: %v\n", err)
 		}
@@ -67,11 +71,16 @@ func Serve() {
 	initRoutes(app)
 
 	http.Handle("/", app.router)
-	log.Printf("Serving on localhost:%d", app.cfg.port)
-	http.ListenAndServe(fmt.Sprintf(":%d", app.cfg.port), nil)
+	log.Printf("Serving on http://localhost:%d", app.cfg.Port)
+	http.ListenAndServe(fmt.Sprintf(":%d", app.cfg.Port), nil)
 }
 
 func initConverter() {
 	formDecoder := schema.NewDecoder()
 	formDecoder.RegisterConverter(converter.NullJSONString{}, converter.JSONNullString)
+}
+
+// FormatVersion constructs the version string for the application
+func FormatVersion() string {
+	return serverSoftware + " " + softwareVer
 }
