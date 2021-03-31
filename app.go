@@ -23,8 +23,7 @@ var (
 )
 
 type App struct {
-	router *mux.Router
-	cfg    *Config
+	cfg *Config
 
 	singleUser *Profile
 }
@@ -68,9 +67,10 @@ func Serve(cfg *Config) {
 		return
 	}
 
-	initRoutes(app)
+	r := mux.NewRouter()
+	app.InitRoutes(r)
 
-	http.Handle("/", app.router)
+	http.Handle("/", r)
 	log.Printf("Serving on http://localhost:%d", app.cfg.Port)
 	http.ListenAndServe(fmt.Sprintf(":%d", app.cfg.Port), nil)
 }
