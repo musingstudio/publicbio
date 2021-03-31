@@ -49,7 +49,7 @@ func Serve(cfg *Config) {
 	if cfg.UserFile != "" {
 		f, err := ioutil.ReadFile(cfg.UserFile)
 		if err != nil {
-			log.Fatal("File error: %v\n", err)
+			log.Fatalf("File error: %v", err)
 		}
 
 		err = json.Unmarshal(f, &app.singleUser)
