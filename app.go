@@ -22,14 +22,14 @@ var (
 	softwareVer = "0.1.0"
 )
 
-type app struct {
+type App struct {
 	router *mux.Router
 	cfg    *Config
 
 	singleUser *Profile
 }
 
-func (app *app) multiUser() bool {
+func (app *App) multiUser() bool {
 	return app.singleUser == nil
 }
 
@@ -42,7 +42,7 @@ type Config struct {
 }
 
 func Serve(cfg *Config) {
-	app := &app{
+	app := &App{
 		cfg: cfg,
 	}
 

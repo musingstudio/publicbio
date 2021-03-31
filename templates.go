@@ -30,7 +30,7 @@ func renderTemplate(w io.Writer, tmpl string, data interface{}) error {
 	return err
 }
 
-func (app *app) pageHandler(name string) http.HandlerFunc {
+func (app *App) pageHandler(name string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		handleError(w, r, func() error {
 			return renderTemplate(w, name, nil)

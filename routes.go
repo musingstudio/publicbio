@@ -5,14 +5,14 @@ import (
 	"net/http"
 )
 
-func initRoutes(app *app) {
+func initRoutes(app *App) {
 	app.router = mux.NewRouter()
 
 	app.router.HandleFunc("/", app.handler(handleViewProfile))
 	app.router.PathPrefix("/").Handler(http.FileServer(http.Dir("../../static/")))
 }
 
-func handleViewProfile(app *app, w http.ResponseWriter, r *http.Request) error {
+func handleViewProfile(app *App, w http.ResponseWriter, r *http.Request) error {
 	vars := mux.Vars(r)
 	username := vars["username"]
 
