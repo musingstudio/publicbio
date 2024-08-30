@@ -7,7 +7,7 @@ import (
 
 func (app *App) InitRoutes(router *mux.Router) {
 	router.HandleFunc("/", app.handler(handleViewProfile))
-	router.PathPrefix("/").Handler(http.FileServer(http.Dir("../../static/")))
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir("static/")))
 }
 
 func handleViewProfile(app *App, w http.ResponseWriter, r *http.Request) error {
