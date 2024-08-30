@@ -4,7 +4,7 @@ go 1.13
 
 require (
 	github.com/gorilla/mux v1.8.0
-	github.com/gorilla/schema v1.2.0
+	github.com/gorilla/schema v1.4.1
 	github.com/microcosm-cc/bluemonday v1.0.16
 	github.com/urfave/cli/v2 v2.3.0
 	github.com/writeas/impart v1.1.1
